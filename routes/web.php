@@ -14,9 +14,15 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+<<<<<<< HEAD
 
 //Route::get('/', function () {
     //return view('admin.index');
  //});
 
  Route::get('/admin',[HomeController::class,'home']);
+=======
+Route::get('/home', function () {
+    return view('welcome');
+});
+>>>>>>> 81ac4fca0efc31fd9e7aa4f5ca0a6d9060351cc1
