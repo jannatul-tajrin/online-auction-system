@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home(){
-        return view('admin.index');
+        return view('admin.layout.contents');
+    }
+
+    public function catagory(){
+        return view('admin.layout.catagory');
     }
 }
