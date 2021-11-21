@@ -9,7 +9,10 @@ class CategoryController extends Controller
 {
     public function category()
     {
-        return view ('admin.layout.category');
+        $products=Product::all();
+        return view ('admin.layout.category',[
+            'products'=>$products
+        ]);
     }
     public function create()
     {
@@ -19,8 +22,10 @@ class CategoryController extends Controller
     {
         // dd($request->all());
             Product::create([
-                'email'=>$request->email,
-                'pass'=>$request->pass,
+                'product_name'=>$request->product_name,
+                'product_type'=>$request->product_type,
+                'product_price'=>$request->product_price,
+
 
             ]);
             return redirect()->back();

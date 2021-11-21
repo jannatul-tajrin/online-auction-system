@@ -1,34 +1,26 @@
 @extends('master')
 
 @section('content')
-<a href="{{route('category.create')}}" class="btn btn-primary">form</a>
+<a href="{{route('category.create')}}" class="btn btn-primary">Add category</a>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">product_name</th>
+      <th scope="col">product_type</th>
+      <th scope="col">product_price</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    
+   @foreach($products as $key=>$product)
+   <tr>
+       <td>{{$key+1}}</td>
+       <td>{{$product->product_name}}</td>
+       <td>{{$product->product_type}}</td>
+       <td>{{$product->product_price}}</td>
+ </tr>
+  @endforeach
   </tbody>
 </table>
 

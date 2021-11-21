@@ -21,12 +21,13 @@ use App\Http\Controllers\Backend\ReportController;
 */
   
 
-
+//template
 Route::get('/',[HomeController::class,'home'])->name('dashboard');
 Route::get('/category',[CategoryController::class,'category'])->name('admin.category');
 Route::get('/seller',[SellerController::class,'seller'])->name('admin.seller');
 Route::get('/bidder',[BidderController::class,'bidder'])->name('admin.bidder');
 Route::get('/report',[ReportController::class,'report'])->name('admin.report');
+//New
 Route::get('/category/create',[CategoryController::class,'create'])->name('category.create');
 Route::post('/category/create/store',[CategoryController::class,'store'])->name('category.store');
 
