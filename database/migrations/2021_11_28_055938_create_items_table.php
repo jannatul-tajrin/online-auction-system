@@ -3,8 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-//category
-class CreateProductsTable extends Migration
+
+class CreateItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
+            $table->string('product_name')->default();
+            $table->string('product_type')->default();
+            $table->string('starting_price')->default();
+            $table->string('starting_time')->default();
+            $table->string('ending_time')->default();
 
-            $table->string('product_name');
-            $table->string('product_type');
-            $table->string('product_price');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('items');
     }
 }
