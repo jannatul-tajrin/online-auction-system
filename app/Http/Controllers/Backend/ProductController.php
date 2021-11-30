@@ -17,8 +17,18 @@ class ProductController extends Controller
 
     return view ('admin.layout.item_create');   
 }
-public function store(Request $request)
-    {
+public function store(Request $request){
+    
+    $filename='';
+    if($request->hasfile('image')){
+        
+    $file=$request->file('image');
+    $filename=(date('Ymdhms')).'.'.$file->getClientOriginalExtension();
+    // dd($filename);
+    $file->storeAs('/uploads',$filename);
+    }
+    
+
        // dd($request->all());
             item::create([
                 'product_name'=>$request->product_name,
@@ -26,7 +36,9 @@ public function store(Request $request)
                 'starting_price'=>$request->starting_price,
                 'staring_time'=>$request->starting_time,
                 'ending_time'=>$request->ending_time,
-
+                
+                'image'=>$filename,
+                       
 
             ]);
             return redirect()->back();

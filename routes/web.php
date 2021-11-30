@@ -20,10 +20,12 @@ use App\Http\Controllers\Backend\ReportController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-  
+  Route::get('/', function () {
+      return view('website.master');
+  });
 
 //template
-Route::get('/',[HomeController::class,'home'])->name('dashboard');
+Route::get('/admin',[HomeController::class,'home'])->name('dashboard');
 Route::get('/category',[CategoryController::class,'category'])->name('admin.category');
 Route::get('/seller',[SellerController::class,'seller'])->name('admin.seller');
 Route::get('/bidder',[BidderController::class,'bidder'])->name('admin.bidder');

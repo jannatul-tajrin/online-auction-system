@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-<form action="{{route('product.store')}}" method='post'>
+<form action="{{route('product.store')}}" method='post' enctype= multipart/form-data>
     @csrf
     <form>
   <div class="form-group">
@@ -26,6 +26,12 @@
     <label for="exampleInputending_time">ending_time</label>
     <input name="ending_time"type="string" class="form-control" id="exampleInputending_time" placeholder="ending_time">
   </div>
+
+  <div class="form-group">
+    <label for="exampleInputimage">image</label>
+    <input name="image"type="file" class="form-control" id="exampleInputimage" placeholder="image">
+  </div>
+  
   
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('starting_price')->default();
             $table->string('starting_time')->default();
             $table->string('ending_time')->default();
+            $table->string('image')->default();
 
             $table->timestamps();
         });
