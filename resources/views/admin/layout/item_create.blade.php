@@ -28,6 +28,11 @@
   </div>
 
   <div class="form-group">
+    <label for="exampleInputproduct_description">product_description</label>
+    <input name="product_description"type="string" class="form-control" id="exampleInputproduct_description" placeholder="product_description">
+  </div>
+
+  <div class="form-group">
     <label for="exampleInputimage">image</label>
     <input name="image"type="file" class="form-control" id="exampleInputimage" placeholder="image">
   </div>

@@ -62,12 +62,22 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="index.html">Bid Pro</a>
+            <a class="navbar-brand" href="index.html">ONLINE AUCTION SYSTEM</a>
         </div>
         <div class="navbar-collapse collapse navbar-right">
             <ul class="nav navbar-nav">
                 <li><a href="index.html">Home</a>
                 </li>
+              
+    
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Auction<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Auction.html">Upcoming Auction</a></li>
+                        <li><a href="Auction.html">Auction Result</a></li>
+                         </li>
+                         </ul>
+                         
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -78,10 +88,16 @@
                         <li><a href="category_5_1.html">Fashion</a></li>
                     </ul>
                 </li>
-                <li><a href="login.html">Login</a>
+                @if(auth()->user())
+                <li><a href="{{route('user.logout')}}">Log Out</a>
+                @else
+
+                <li><a href="{{route('login.user')}}">Login</a>
                 </li>
-                <li><a href="signin.html">Sign Up</a>
+                <li><a href="{{route('registration')}}">Registration</a>
                 </li>
+                @endif
+                
             </ul>
         </div>
         <!--/.nav-collapse -->
@@ -89,192 +105,13 @@
 </div>
 
 <!--Carousel for products-->
-<header>
-    <!--Script for automatic scrolling of carousel-->
-    <script>
-        $(document).ready(function () {
-            $('#myCarousel').carousel({
-                interval: 1500
-            });
-        });
-    </script>
-    <div class="container">
-        <div class="container-fluid">
-            <div id="myCarousel" class="carousel slide">
-                <!-- Carousel indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-targe t="#myCarousel" data-slide-to="3"></li>
-                    <li data-target="#myCarousel" data-slide-to="4"></li>
-                </ol>
-                <!-- Carousel items -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img class="d-block img-fluid thumbnail" src="products/mobiles/p1.jpeg" alt="First slide">
-                        <div class="carousel-caption text-center"><a href="products/mobiles/p1.html">
-                            <h3>Get those classy new smartphones</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img class="d-block img-fluid thumbnail" src="products/fitness/p3.jpeg" alt="Second slide">
-                        <div class="carousel-caption text-center"><a href="products/fitness/p3.html">
-                            <h3>Time to get Fit ?</h3>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img class="d-block img-fluid thumbnail" src="products/fashion/p2.jpeg" alt="Third slide">
-                        <div class="carousel-caption text-center"><a href="products/fashion/p2.html">
-                            <h3>The wedding season is here, Where are you ?</h3>
-                            </a>
-                        </div>
-
-                    </div>
-                    <div class="item">
-                        <img class="d-block img-fluid thumbnail" src="products/automobiles/p3.jpg" alt="Fourth slide">
-                        <div class="carousel-caption text-center"><a href="products/automobiles/p3.html">
-                            <h3>Longing for long drive ??? Get going with these!!!</h3>
-                            </a>
-                        </div>
-
-                    </div>
-                    <div class="item">
-                        <img class="d-block img-fluid thumbnail" src="products/books/p5.jpg" alt="Fifth slide">
-                        <div class="carousel-caption text-center"><a href="products/books/p5.html">
-                            <h3>The best friends of man</h3>
-                            </a>
-
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Carousel nav -->
-                <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
-</header>
+@include('website.layout.header')
 
 <!-- Products Section -->
-<section id="product">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 style="color: rgba(147,9,168,0.81);">Products - Fire Sale!!!</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 product-item">
-                <a href="products/books/p11.html" class="product-link thumbnail" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-cart-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="products/books/p11.jpg" class="img-responsive" alt="Modal_1" width="300px" height="300px"></a>
-            </div>
-            <div class="col-lg-4 product-item">
-                <a href="products/automobiles/p2.html" class="product-link thumbnail" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-cart-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="products/automobiles/p2.jpg" class="img-responsive" alt="Modal_2" width="300px" height="300px"></a>
-            </div>
-            <div class="col-lg-4 product-item">
-                <a href="products/books/p4.html" class="product-link thumbnail" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-cart-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="products/books/p4.jpg" class="img-responsive" alt="Modal_3" width="300px" height="300px"></a>
-            </div>
-            <div class="col-lg-4 product-item">
-                <a href="products/fitness/p1.html" class="product-link thumbnail" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-cart-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="products/fitness/p1.jpeg" class="img-responsive" alt="Modal_4" width="300px" height="300px"></a>
-            </div>
-            <div class="col-lg-4 product-item">
-                <a href="products/fashion/p3.html" class="product-link thumbnail" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-cart-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="products/fashion/p3.jpeg" class="img-responsive" alt="Modal_5" width="300px" height="300px"></a>
-            </div>
-            <div class="col-lg-4 product-item">
-                <a href="products/books/p10.html" class="product-link thumbnail" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-cart-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="products/books/p10.jpg" class="img-responsive" alt="Modal_6" width="300px" height="300px"></a>
-            </div>
-            <div class="col-lg-4 product-item">
-                <a href="products/mobiles/p1.html" class="product-link thumbnail" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-cart-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="products/mobiles/p1.jpeg" class="img-responsive" alt="Modal_7" width="300px" height="300px"></a>
-            </div>
-            <div class="col-lg-4 product-item">
-                <a href="products/books/p7.html" class="product-link thumbnail" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-cart-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="products/books/p7.jpg" class="img-responsive" alt="Modal_8" width="300px" height="300px"></a>
-            </div>
-            <div class="col-lg-4 product-item">
-                <a href="products/automobiles/p4.html" class="product-link thumbnail" data-toggle="modal">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <i class="fa fa-cart-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="products/automobiles/p4.jpg" class="img-responsive" alt="Modal_9" width="300px" height="300px"></a>
-            </div>
-        </div>
-
-    </div>
-</section>
+@yield('content')
 
 <!--Footer Section-->
-<footer id="myFooter">
-    <div class="container">
-        <ul>
-            <li><a href="compinfo.html">Company Information</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-        </ul>
-        <p class="footer-copyright">© 2017 Copyright of Ra1</p>
-    </div>
-    <div class="footer-social">
-        <a href="contactus.html" class="social-icons"><i class="fa fa-envelope"></i></a>
-    </div>
-</footer>
+
+@include('website.layout.footer')
 </body>
 </html>

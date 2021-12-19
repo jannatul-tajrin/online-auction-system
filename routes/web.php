@@ -8,6 +8,14 @@ use App\Http\Controllers\Backend\SellerController;
 use App\Http\Controllers\Backend\BidderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ReportController;
+use App\Http\Controllers\Frontend\LoginController;
+
+use App\Http\Controllers\Frontend\HomeControllers;
+use App\Http\Controllers\Frontend\ShowProductController;
+
+
+
+
 
 
 /*
@@ -20,11 +28,9 @@ use App\Http\Controllers\Backend\ReportController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-  Route::get('/', function () {
-      return view('website.master');
-  });
+ 
 
-//template
+// admin template
 Route::get('/admin',[HomeController::class,'home'])->name('dashboard');
 Route::get('/category',[CategoryController::class,'category'])->name('admin.category');
 Route::get('/seller',[SellerController::class,'seller'])->name('admin.seller');
@@ -43,3 +49,13 @@ Route::post('/product/create/store',[ProductController::class,'store'])->name('p
 
 
 
+Route::get('/home',[HomeControllers::class,'Home'])->name('frontend.home');
+Route::get('/home/login',[LoginController::class,'Login'])->name('login.user');
+Route::post('/home/login/store',[LoginController::class,'Loginstore'])->name('login.store');
+
+Route::get('/home/registration',[LoginController::class,'registration'])->name('registration');
+Route::post('/home/registration/store',[LoginController::class,'registrationstore'])->name('registration.store');
+
+Route::get('/home/logout',[LoginController::class,'logout'])->name('user.logout');
+Route::get('/home/showproduct',[ShowProductController::class,'product'])->name('product');
+Route::get('/home/productdetails/{id}',[ShowProductController::class,'productDetails'])->name('productdetails');

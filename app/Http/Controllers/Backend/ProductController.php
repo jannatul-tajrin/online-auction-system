@@ -18,7 +18,7 @@ class ProductController extends Controller
     return view ('admin.layout.item_create');   
 }
 public function store(Request $request){
-    
+    // dd($request->all());php
     $filename='';
     if($request->hasfile('image')){
         
@@ -36,6 +36,7 @@ public function store(Request $request){
                 'starting_price'=>$request->starting_price,
                 'staring_time'=>$request->starting_time,
                 'ending_time'=>$request->ending_time,
+                'product_description'=>$request->product_description,
                 
                 'image'=>$filename,
                        
