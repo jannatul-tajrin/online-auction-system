@@ -66,7 +66,7 @@
         </div>
         <div class="navbar-collapse collapse navbar-right">
             <ul class="nav navbar-nav">
-                <li><a href="index.html">Home</a>
+                <li><a href="{{route('frontend.home')}}">Home</a>
                 </li>
               
     

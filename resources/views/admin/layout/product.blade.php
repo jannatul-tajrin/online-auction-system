@@ -13,7 +13,9 @@
       <th scope="col">ending_time</th>
       <th scope="col">product_description</th>
       
+      
       <th scope="col">image</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -25,11 +27,16 @@
        <td>{{$item->starting_price}}</td>
        <td>{{$item->starting_time}}</td>
        <td>{{$item->ending_time}}</td> 
-       <td>{{$item->product_description}}</td>  
-        
+       <td>{{$item->product_description}}</td>
+      
+       
        
     <td><img src="{{asset('/uploads/'.$item->image)}}" alt="" style="width:100px"></td>   
-       
+    <td>
+       <a button type="button" class="btn btn-primary" href="{{route('product.view',$item->id)}}">View</button>
+       <a button type="button" class="btn btn-success"href="#">Edit</button>
+       <a button type="button" class="btn btn-danger"href="{{route('product.delete',$item->id)}}">Delete</button>
+       </td>
  </tr>
  @endforeach
   </tbody>

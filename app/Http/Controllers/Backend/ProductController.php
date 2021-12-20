@@ -44,6 +44,17 @@ public function store(Request $request){
             ]);
             return redirect()->back();
     }
+
+    public function product_view($id){
+        $item=Item::find($id);
+        return view('admin.layout.product_view',compact('item'));
+    }
+
+    public function product_delete($id){
+        Item::find($id)->delete();
+        return redirect()->back()->with('success','Product Deleted.');
+        
+    }
 }
 
 

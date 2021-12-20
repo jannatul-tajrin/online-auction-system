@@ -8,8 +8,10 @@ use App\Http\Controllers\Backend\SellerController;
 use App\Http\Controllers\Backend\BidderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ReportController;
-use App\Http\Controllers\Frontend\LoginController;
+use App\Http\Controllers\Backend\AdminLoginController;
 
+use App\Http\Controllers\Frontend\LoginController;
+use App\Http\Controllers\Frontend\BidController;
 use App\Http\Controllers\Frontend\HomeControllers;
 use App\Http\Controllers\Frontend\ShowProductController;
 
@@ -28,10 +30,28 @@ use App\Http\Controllers\Frontend\ShowProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+ Route::get('/',function(){
+   return redirect()->route('website.home');
+ });
+ Route::get('/website',function(){
+
+   return view('website.master');
+
+ })->name('website.home');
+
+ Route::get('/admin/login',[AdminLoginController::class,'login'])->name('admin.login');
+ Route::post('/admin/do/login',[AdminLoginController::class,'dologin'])->name('admin.do.login');
+
+Route::group(['middleware'=>'auth'],function(){
+Route::get('/admin',function(){
+  return view('master');
+})->name('dashboard');
+Route::get('/admin/logout',[AdminLoginController::class,'logout'])->name('admin.logout');
+
  
 
 // admin template
-Route::get('/admin',[HomeController::class,'home'])->name('dashboard');
+Route::get('/admin/dashboard',[HomeController::class,'home'])->name('dashboard');
 Route::get('/category',[CategoryController::class,'category'])->name('admin.category');
 Route::get('/seller',[SellerController::class,'seller'])->name('admin.seller');
 Route::get('/bidder',[BidderController::class,'bidder'])->name('admin.bidder');
@@ -46,7 +66,10 @@ Route::post('/category/create/store',[CategoryController::class,'store'])->name(
 //creat_item
 Route::get('/product/create',[ProductController::class,'create'])->name('product.create');
 Route::post('/product/create/store',[ProductController::class,'store'])->name('product.store');
+Route::get('/product/list/view/{id}',[ProductController::class,'product_view'])->name('product.view');
+Route::get('/product/list/delete/{id}',[ProductController::class,'product_delete'])->name('product.delete');
 
+});
 
 
 Route::get('/home',[HomeControllers::class,'Home'])->name('frontend.home');
@@ -59,3 +82,4 @@ Route::post('/home/registration/store',[LoginController::class,'registrationstor
 Route::get('/home/logout',[LoginController::class,'logout'])->name('user.logout');
 Route::get('/home/showproduct',[ShowProductController::class,'product'])->name('product');
 Route::get('/home/productdetails/{id}',[ShowProductController::class,'productDetails'])->name('productdetails');
+Route::get('/home/bidforproduct/{id}',[BidController::class,'bid'])->name('home.bid');

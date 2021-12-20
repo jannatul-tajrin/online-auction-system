@@ -24,14 +24,13 @@
             <h3>Product Description</h3>
             <p>{{$item->product_description}}</p>
             <h3>Product Details</h3>
-            <p>{{$item->product_price}}</p>
+            
             
             <ul>
             
-                <li>4 GB DDR3L SDRAM (1 x 4 GB)</li>
-                <li>Intel HD Graphics 4400</li>
-                <li>1 TB 5400 rpm SATA</li>
-                <li>asidisl</li>
+                <li>Price:{{$item->starting_price}}</li>
+                <li>Starting Time:{{$item->starting_time}}</li>
+                <li>Ending Time:{{$item->ending_time}}</li>
             </ul>
         </div>
 
@@ -40,7 +39,7 @@
                 <span class="input-group-addon"><i class="fa fa-rupee"></i></span>
                 <input type="text" class="form-control" placeholder="Bidding starts from" disabled>
             </div>
-            <button type="submit" class="btn btn-warning">Bid for Product</button>
+            <a href="{{route('home.bid',$item->id)}}" class="btn btn-primary">Bid for Product</a>
 
         </div>
 
@@ -48,7 +47,7 @@
     <!-- /.row -->
 
     <!-- Related Projects Row -->
-    <div class="row">
+    <!--<div class="row">
 
         <div class="col-lg-12">
             <h3 class="page-header">Related Products</h3>
@@ -76,7 +75,7 @@
             <a href="#">
                 <img class="img-responsive portfolio-item" src="img/game.png" alt="pro_4">
             </a>
-        </div>
+        </div>-->
 
     </div>
     <!-- /.row -->
@@ -85,7 +84,7 @@
 
 
     <!--Footer Section-->
-    <footer id="myFooter">
+   <!-- <footer id="myFooter">
         <div class="container">
             <ul>
                 <li><a href="#">Company Information</a></li>
@@ -98,7 +97,7 @@
             <a href="#" class="social-icons"><i class="fa fa-envelope"></i></a>
         </div>
     </footer>
-</div>
+</div>-->
   
   </div>
 </div>

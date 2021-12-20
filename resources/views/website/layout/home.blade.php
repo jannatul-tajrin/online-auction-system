@@ -16,9 +16,9 @@
                 <a href="{{route('productdetails',$item->id)}}"><img src="{{url('/uploads/'.$item->image)}}" class="img-responsive" alt="Modal_1" width="300px" height="300px"> </a>
                 <h3 class="text-center">{{$item->product_name}}</h3>
                 <p class="text-center">Product Type:{{$item->product_type}}</p>
-                <p class="text-center">Price:{{$item->starting_price}}</p>
+                <!-- <p class="text-center">Price:{{$item->starting_price}}</p>
                 <p class="text-center">time:{{$item->staring_time}}</p>
-                <p class="text-center">{{$item->ending_time}}</p>
+                <p class="text-center">{{$item->ending_time}}</p> -->
 
                 <div class="caption">
                     <div class="caption-content">
