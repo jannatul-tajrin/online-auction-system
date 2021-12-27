@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Frontend;
 use App\Models\Item;
+use App\Models\Bid;
+use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -11,29 +13,26 @@ class BidController extends Controller
     {
         
         $items=Item::find($id);
-        return view('website.layout.bid',compact('items'));
+        $bids=Bid::all();
+        return view('website.layout.bid',compact('items','bids'));
     }
 
 
- public function create()
+    public function store(Request $request,$id)
     {
-        return view ('Frontend.create_bid');
-    }
+        $item = Item::find($id);
 
-
-
-    public function store(Request $request)
-    {
-bid::create([
-    'Product Id'=>$request->product_name,
-    'Bidding_price'=>$request->product_type,
-    'User_Id'=>$request->starting_price,
-    'status'=>$request->starting_time,
-    
-
-
-]);
-return redirect()->back();
+        if($item->starting_price < $request->bidding_price){
+            Bid::create([
+                'item_id'=>$item->id,
+                'bidding_price'=>$request->bidding_price,
+                'user_id'=>auth()->user()->id,
+            ]);
+                return redirect()->back();
+        }else{
+            return redirect()->back();
+        }
+       
 
     }
 }

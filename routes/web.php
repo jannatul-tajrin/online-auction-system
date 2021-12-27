@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\AdminLoginController;
 
+
 use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\BidController;
 use App\Http\Controllers\Frontend\HomeControllers;
@@ -68,6 +69,9 @@ Route::get('/product/create',[ProductController::class,'create'])->name('product
 Route::post('/product/create/store',[ProductController::class,'store'])->name('product.store');
 Route::get('/product/list/view/{id}',[ProductController::class,'product_view'])->name('product.view');
 Route::get('/product/list/delete/{id}',[ProductController::class,'product_delete'])->name('product.delete');
+Route::get('/product/list/edit/{id}',[ProductController::class,'product_edit'])->name('product.edit');
+Route::put('/product/list/update/{id}',[ProductController::class,'product_update'])->name('product.update');
+
 
 });
 
@@ -83,3 +87,4 @@ Route::get('/home/logout',[LoginController::class,'logout'])->name('user.logout'
 Route::get('/home/showproduct',[ShowProductController::class,'product'])->name('product');
 Route::get('/home/productdetails/{id}',[ShowProductController::class,'productDetails'])->name('productdetails');
 Route::get('/home/bidforproduct/{id}',[BidController::class,'bid'])->name('home.bid');
+Route::post('/home/bidforproduct/store/{id}',[BidController::class,'store'])->name('home.bid.store');

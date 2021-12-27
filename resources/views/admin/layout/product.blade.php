@@ -34,7 +34,7 @@
     <td><img src="{{asset('/uploads/'.$item->image)}}" alt="" style="width:100px"></td>   
     <td>
        <a button type="button" class="btn btn-primary" href="{{route('product.view',$item->id)}}">View</button>
-       <a button type="button" class="btn btn-success"href="#">Edit</button>
+       <a button type="button" class="btn btn-success"href="{{route('product.edit',$item->id)}}">Edit</button>
        <a button type="button" class="btn btn-danger"href="{{route('product.delete',$item->id)}}">Delete</button>
        </td>
  </tr>

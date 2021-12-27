@@ -17,6 +17,10 @@
             @include('admin.partials.sidebar')
             <div id="layoutSidenav_content">
                 <main>
+                @if(session()->has('message'))
+<p class="alert alet-success">
+{{session()->get('message')}}</p>
+@endif
                     @yield('content')
                 </main>
                 @include('admin.partials.footer') 

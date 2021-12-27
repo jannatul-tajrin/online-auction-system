@@ -40,7 +40,7 @@
                 <input type="text" class="form-control" placeholder="Bidding starts from" disabled>
             </div>
             <a href="{{route('home.bid',$item->id)}}" class="btn btn-primary">Bid for Product</a>
-
+            
         </div>
 
     </div>

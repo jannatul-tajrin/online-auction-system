@@ -15,10 +15,11 @@ class CreateBidsTable extends Migration
     {
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
-            $table->string('Product Id');
-            $table->string('User_Id');
-            $table->double('Bidding_price');
-            $table->string('Status');
+            $table->string('item_id');
+            $table->string('user_id');
+            $table->double('bidding_price');
+            $table->string('status')->default('pending');
+            $table->timestamps();
             
         });
     }

@@ -7,57 +7,40 @@
 
 
 <div style="margin:40px">Price:{{$items->starting_price}}</div>
+<div style="margin:40px">Time:{{$items->starting_time}}</div>
 
+<form action="{{route('home.bid.store',$items->id)}}" method="post">
+    @csrf
 <div class="col-lg-3">
             <div class="form-group input-group">
                 <span class="input-group-addon"><i class="fa fa-rupee"></i></span>
-                <input type="text" class="form-control" placeholder="Bidding starts from" >
-            </div>
+                <input name="bidding_price" type="text" class="form-control" placeholder="Bidding starts from" >
+                <button type="submit" class="btn btn-success">Success</button>
+            </div>     
 
 </div>
+</form>
 
 <table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Product Id</th>
+      <th scope="col">Product_Id</th>
       <th scope="col">Bidding_price</th>
       <th scope="col">User_Id</th>
       <th scope="col">status</th>
     </tr>
   </thead>
   <tbody>
-
+@foreach($bids as $bid)
     <tr>
       <th scope="row">1</th>
-      <td>A</td>
-      <td>B</td>
-      <td>C</td>
-      <td>C</td>
+      <td>{{$bid->item_id}}</td>
+      <td>{{$bid->bidding_price}}</td>
+      <td>{{$bid->user_id}}</td>
+      <td>{{$bid->status}}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan=>Larry the Bird</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      <td>@twitter</td>
-      
-      
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      
-    </tr>
+    @endforeach
     
     
   </tbody>

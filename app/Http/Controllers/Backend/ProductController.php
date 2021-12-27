@@ -53,9 +53,52 @@ public function store(Request $request){
     public function product_delete($id){
         Item::find($id)->delete();
         return redirect()->back()->with('success','Product Deleted.');
-        
     }
+
+
+        public function product_edit($id)
+        {
+            $item=Item::find($id);
+            return view('website.layout.product_edit',compact('item'));
+
+
+    }
+    public function productupdate(Request $request,$id)
+    
+{
+
+    $item=Item::find($id);
+
+
+
+$filename='';
+    if($request->hasfile('image'))
+    {
+        
+    $file=$request->file('image');
+    
+    $filename=(date('Ymdhms')).'.'.$file->getClientOriginalExtension();
+    $file->storeAs('/uploads',$filename);
 }
 
+
+$item->update([
+    'product_name'=>$request->product_name,
+    'product_type'=>$request->product_type,
+    'starting_price'=>$request->starting_price,
+    'staring_time'=>$request->starting_time,
+    'ending_time'=>$request->ending_time,
+    'product_description'=>$request->product_description,
+    
+    'image'=>$filename,
+           
+
+]);
+//return redirect()->route('product.edit')->with('success,'product details update successfully.');
+
+
+    
+}
+}
 
 
