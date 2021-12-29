@@ -60,6 +60,8 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 bidder
                             </a>
+
+                        
                             <a class="nav-link" href="{{route('admin.product')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 product

@@ -11,7 +11,7 @@ class ProductController extends Controller
     {
         $items =Item::all();
         return view ('admin.layout.product',compact('items'));
-}
+    }
     public function create()
 {
 
@@ -100,5 +100,3 @@ $item->update([
     
 }
 }
-
-

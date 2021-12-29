@@ -36,7 +36,10 @@
        <a button type="button" class="btn btn-primary" href="{{route('product.view',$item->id)}}">View</button>
        <a button type="button" class="btn btn-success"href="{{route('product.edit',$item->id)}}">Edit</button>
        <a button type="button" class="btn btn-danger"href="{{route('product.delete',$item->id)}}">Delete</button>
-       </td>
+       <a button type="button" class="btn btn-info"href="{{route('admin.bid details',$item->id)}}">Bid details</button>
+   
+   
+      </td>
  </tr>
  @endforeach
   </tbody>

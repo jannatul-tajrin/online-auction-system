@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\BidderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\AdminLoginController;
+use App\Http\Controllers\Backend\Bid_detailsController;
 
 
 use App\Http\Controllers\Frontend\LoginController;
@@ -73,7 +74,12 @@ Route::get('/product/list/edit/{id}',[ProductController::class,'product_edit'])-
 Route::put('/product/list/update/{id}',[ProductController::class,'product_update'])->name('product.update');
 
 
+//Bid_details
+Route::get('/Bid_details/{id}',[Bid_detailsController::class,'Bid_details'])->name('admin.bid details');
+
+
 });
+
 
 
 Route::get('/home',[HomeControllers::class,'Home'])->name('frontend.home');

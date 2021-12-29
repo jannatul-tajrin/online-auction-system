@@ -9,6 +9,11 @@ class Item extends Model
 {
     use HasFactory;
     protected $fillable=['product_name','product_type','starting_price','starting_time','ending_time','product_description','image'];
-    
+
+    public function bids()
+    {
+        return $this->hasMany(Bid::class);
+    }
+
 }
 

@@ -1,12 +1,17 @@
 @extends('master')
-
 @section('content')
-<h1>BID</h1>
+<h1>Bid_details</h1>
+
+
+
+<h4 style="text-align:center">product Name : {{$biddetails->product_name}}</h4>
+<h5 style="text-align:center">Result : {{$maxBidResult}}</h5>
+<hr>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Product_Id</th>
       <th scope="col">Bidding_price</th>
       <th scope="col">User_Id</th>
       <th scope="col">status</th>
@@ -14,30 +19,20 @@
     </tr>
   </thead>
   <tbody>
-  @foreach($bids as $bid)
+
+  @foreach($biddetails->bids as $biddetail)
+
     <tr>
       <th scope="row">1</th>
-      <td>{{$bid->item_id}}</td>
-      <td>{{$bid->bidding_price}}</td>
-      <td>{{$bid->user->name}}</td>
-      <td>{{$bid->status}}</td>
-      
-    
+      <td>{{$biddetail->bidding_price}}</td>
+      <td>{{$biddetail->user->name}}</td>
+      <td>{{$biddetail->status}}</td>
       
 
-      
+
 <td>
 
 
-<!-- <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle"herf="{{route('admin.bidder',)}}" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Action
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-  <a type="button" class="btn btn-success"href="{{route('admin.bidder')}}">Approved</button>
-    <a type="button" class="btn btn-danger"href="{{route('admin.bidder')}}">Cancle</button>
-  </div>
-</div> -->
 
 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle"href="#" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -57,6 +52,8 @@
     
   </tbody>
 </table>
+
+
 
 
 
