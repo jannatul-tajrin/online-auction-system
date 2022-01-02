@@ -1,5 +1,7 @@
+
 <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                @if(auth()->user()->role=='admin')
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
@@ -52,24 +54,27 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Category
                             </a>
-                            <a class="nav-link" href="{{route('admin.seller')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                seller
-                            </a>
+                            
                             <a class="nav-link" href="{{route('admin.bidder')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 bidder
-                            </a>
-
-                        
-                            <a class="nav-link" href="{{route('admin.product')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                product
                             </a>
                             <a class="nav-link" href="{{route('admin.report')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 report
                             </a>
+                           <!-- <a class="nav-link" href="{{route('admin.seller')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                seller
+                            </a>-->
+                    
+                            @endif
+                            <a class="nav-link" href="{{route('admin.product')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                product
+                            </a>
+
+
 
                         </div>
                     </div>

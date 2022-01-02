@@ -44,7 +44,7 @@ use App\Http\Controllers\Frontend\ShowProductController;
  Route::get('/admin/login',[AdminLoginController::class,'login'])->name('admin.login');
  Route::post('/admin/do/login',[AdminLoginController::class,'dologin'])->name('admin.do.login');
 
-Route::group(['middleware'=>'auth'],function(){
+Route::group(['middleware'=>['auth','admin']],function(){
 Route::get('/admin',function(){
   return view('master');
 })->name('dashboard');

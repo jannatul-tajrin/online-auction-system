@@ -28,9 +28,9 @@ class BidController extends Controller
                 'bidding_price'=>$request->bidding_price,
                 'user_id'=>auth()->user()->id,
             ]);
-                return redirect()->back();
+                return redirect()->back()->with('success','added sucessful');
         }else{
-            return redirect()->back();
+            return redirect()->back()->with('error','something wrong');;
         }
        
 

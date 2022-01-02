@@ -5,9 +5,16 @@
 <h1>BID</h1>
 <div><img src="{{url('/uploads/'.$items->image)}}" class="img-responsive" alt="Modal_1" width="300px" height="300px">
 
-
 <div style="margin:40px">Price:{{$items->starting_price}}</div>
 <div style="margin:40px">Time:{{$items->starting_time}}</div>
+
+
+@if(session('success'))
+<div class="alert alert-danger">{!! session('success') !!}</div>
+@endif
+@if(session('error'))
+<div class="alert alert-danger">{!! session('error') !!}</div>
+@endif
 
 <form action="{{route('home.bid.store',$items->id)}}" method="post">
     @csrf
@@ -15,6 +22,9 @@
             <div class="form-group input-group">
                 <span class="input-group-addon"><i class="fa fa-rupee"></i></span>
                 <input name="bidding_price" type="text" class="form-control" placeholder="Bidding starts from" >
+               
+
+
                 <button type="submit" class="btn btn-success">Success</button>
             </div>     
 

@@ -13,12 +13,15 @@ class Bid_detailsController extends Controller
             
         
     public function Bid_details($id)
+
     {
+    
         $maxBidResult = Bid::where('item_id',$id)->max('bidding_price');
         $biddetails=Item::with(['bids'=> function($q){
             $q->orderBy('bidding_price','desc');
         }])->where('id',$id)->first();
-        return view ('admin.layout.bid details',compact('biddetails','maxBidResult'));
+        
+        
     }
 }
 

@@ -10,6 +10,7 @@ class BidderController extends Controller
     public function bidder()
     {
         
+        
         $bids=Bid::all();
         
         return view ('admin.layout.bidder',compact('bids'));
