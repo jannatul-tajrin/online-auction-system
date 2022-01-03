@@ -15,4 +15,23 @@ class BidderController extends Controller
         
         return view ('admin.layout.bidder',compact('bids'));
     }
+    public function status_update($id)
+    
+{   
+    // dd($request->all());
+    // dd($id);
+    $bidstatus=Bid::find($id);
+    if($bidstatus->status)
+       {
+          $bidstatus->update([
+               'status' => 'approved'
+           ]);
+       }else{
+        $bidstatus->update([
+            'status' => 'cancelled'
+        ]);
+       }
+
+    return redirect()->back();
+}
 }

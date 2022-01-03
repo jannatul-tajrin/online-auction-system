@@ -20,8 +20,45 @@ class Bid_detailsController extends Controller
         $biddetails=Item::with(['bids'=> function($q){
             $q->orderBy('bidding_price','desc');
         }])->where('id',$id)->first();
+        return view ('admin.layout.bid details',compact('biddetails','maxBidResult'));
         
         
     }
+
+
+
+    public function status_update($id)
+    
+{   
+    // dd($request->all());
+    // dd($id);
+    $bidstatus=Bid::find($id);
+    if($bidstatus->status)
+       {
+          $bidstatus->update([
+               'status' => 'approved'
+           ]);
+       }else{
+        $bidstatus->update([
+            'status' => 'cancelled'
+        ]);
+       }
+
+    return redirect()->back();
 }
 
+
+public function status_cancel($id)
+{
+
+$bidstatus=Bid::find($id);
+    if($bidstatus->status)
+       {
+          $bidstatus->update([
+               'status' => 'cancelled'
+           ]);
+        }
+           return redirect()->back();
+
+    }
+}

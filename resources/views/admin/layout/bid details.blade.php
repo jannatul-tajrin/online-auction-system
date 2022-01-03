@@ -39,8 +39,9 @@
     Action
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a  type="button"class="dropdown-item"class="btn btn-success" href="#">Approved</a></li></button>
-    <li><a type="button" class="dropdown-item"class="btn btn-danger" href="#">Cancle</a></li></button>
+    <li><a  type="button" class="dropdown-item"class="btn btn-success" href="{{route('status.update',$biddetail->id)}}">Approved</a></li></button>
+    
+    <li><a type="button" class="dropdown-item"class="btn btn-danger" href="{{route('status.cancel',$biddetail->id)}}">Cancel</a></li></button>
     
   </ul>
 </div>

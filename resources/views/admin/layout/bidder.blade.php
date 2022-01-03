@@ -2,6 +2,10 @@
 
 @section('content')
 <h1>BID</h1>
+
+
+
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -44,8 +48,8 @@
     Action
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a  type="button"class="dropdown-item"class="btn btn-success" href="#">Approved</a></li></button>
-    <li><a type="button" class="dropdown-item"class="btn btn-danger" href="#">Cancle</a></li></button>
+    <li><a  type="button"class="dropdown-item"class="btn btn-success" href="{{route('status.update',$bid->id)}}">Approved</a></li></button>
+    <li><a type="button" class="dropdown-item"class="btn btn-danger" href="{{route('status.cancel',$bid->id)}}">Cancel</a></li></button>
     
   </ul>
 </div>

@@ -56,7 +56,16 @@ Route::get('/admin/logout',[AdminLoginController::class,'logout'])->name('admin.
 Route::get('/admin/dashboard',[HomeController::class,'home'])->name('dashboard');
 Route::get('/category',[CategoryController::class,'category'])->name('admin.category');
 Route::get('/seller',[SellerController::class,'seller'])->name('admin.seller');
+
+
+
+
 Route::get('/bidder',[BidderController::class,'bidder'])->name('admin.bidder');
+Route::get('/bidder/status/update/{id}',[BidderController::class,'bidder'])->name('status.update');
+
+
+
+
 Route::get('/report',[ReportController::class,'report'])->name('admin.report');
 Route::get('/product',[ProductController::class,'product'])->name('admin.product');
 
@@ -76,6 +85,9 @@ Route::put('/product/list/update/{id}',[ProductController::class,'product_update
 
 //Bid_details
 Route::get('/Bid_details/{id}',[Bid_detailsController::class,'Bid_details'])->name('admin.bid details');
+Route::get('/Bid_details/status/update/{id}',[Bid_detailsController::class,'status_update'])->name('status.update');
+
+Route::get('/Bid_details/status/cancel/{id}',[Bid_detailsController::class,'status_cancel'])->name('status.cancel');
 
 
 });
@@ -94,3 +106,5 @@ Route::get('/home/showproduct',[ShowProductController::class,'product'])->name('
 Route::get('/home/productdetails/{id}',[ShowProductController::class,'productDetails'])->name('productdetails');
 Route::get('/home/bidforproduct/{id}',[BidController::class,'bid'])->name('home.bid');
 Route::post('/home/bidforproduct/store/{id}',[BidController::class,'store'])->name('home.bid.store');
+
+
