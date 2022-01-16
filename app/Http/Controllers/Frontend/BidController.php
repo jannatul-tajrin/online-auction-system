@@ -30,9 +30,9 @@ class BidController extends Controller
             ]);
                 return redirect()->back()->with('success','added sucessful');
         }else{
-            return redirect()->back()->with('error','something wrong');;
+            return redirect()->back()->with('error','something wrong');
         }
-       
 
+        
     }
 }

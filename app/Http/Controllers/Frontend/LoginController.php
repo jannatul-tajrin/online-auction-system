@@ -42,7 +42,8 @@ class LoginController extends Controller
 
 
     public function registrationstore(Request $request){
-
+  // dd($request->all());
+   
         User::create([
           
          'name'=>$request->name,
@@ -50,6 +51,8 @@ class LoginController extends Controller
         'address'=>$request->address,
         'password'=>bcrypt($request->password),
         'phone' =>$request->phone,
+        'role'=>$request->role,
+
         ]);
         return redirect()->route('login.user');
     }

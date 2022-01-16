@@ -39,6 +39,7 @@
                 <span class="input-group-addon"><i class="fa fa-rupee"></i></span>
                 <input type="text" class="form-control" placeholder="Bidding starts from" disabled>
             </div>
+            
             <a href="{{route('home.bid',$item->id)}}" class="btn btn-primary">Bid for Product</a>
             
         </div>

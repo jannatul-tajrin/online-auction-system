@@ -16,6 +16,8 @@ use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\BidController;
 use App\Http\Controllers\Frontend\HomeControllers;
 use App\Http\Controllers\Frontend\ShowProductController;
+use App\Http\Controllers\Frontend\ProfileController;
+
 
 
 
@@ -106,5 +108,4 @@ Route::get('/home/showproduct',[ShowProductController::class,'product'])->name('
 Route::get('/home/productdetails/{id}',[ShowProductController::class,'productDetails'])->name('productdetails');
 Route::get('/home/bidforproduct/{id}',[BidController::class,'bid'])->name('home.bid');
 Route::post('/home/bidforproduct/store/{id}',[BidController::class,'store'])->name('home.bid.store');
-
-
+Route::get('/home/profile',[ProfileController::class,'profile'])->name('frontend.profile');

@@ -18,7 +18,7 @@ class ProductController extends Controller
     return view ('admin.layout.item_create');   
 }
 public function store(Request $request){
-    // dd($request->all());php
+    // dd($request->all());
     $filename='';
     if($request->hasfile('image')){
         
@@ -63,7 +63,7 @@ public function store(Request $request){
 
 
     }
-    public function productupdate(Request $request,$id)
+    public function product_update(Request $request,$id)
     
 {
 
@@ -94,9 +94,11 @@ $item->update([
            
 
 ]);
-//return redirect()->route('product.edit')->with('success,'product details update successfully.');
+return redirect()->route('admin.product')->with('success','product details update successfully');
 
 
     
+
 }
+
 }

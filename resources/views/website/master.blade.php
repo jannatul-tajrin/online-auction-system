@@ -68,17 +68,25 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{route('frontend.home')}}">Home</a>
                 </li>
+
+                
+                <li><a href="{{route('frontend.profile')}}">Profile</a>
+                </li>
               
     
-                <li class="dropdown">
+               <!-- <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Auction<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="Auction.html">Upcoming Auction</a></li>
+                        
                         <li><a href="Auction.html">Auction Result</a></li>
                          </li>
-                         </ul>
+                         </ul>-->
+
+
                          
-                <li class="dropdown">
+                         
+
+              <!--  <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="category_1_1.html">Books</a></li>
@@ -87,7 +95,7 @@
                         <li><a href="category_4_1.html">Fitness</a></li>
                         <li><a href="category_5_1.html">Fashion</a></li>
                     </ul>
-                </li>
+                </li>-->
                 @if(auth()->user())
                 <li><a href="{{route('user.logout')}}">Log Out</a>
                 @else

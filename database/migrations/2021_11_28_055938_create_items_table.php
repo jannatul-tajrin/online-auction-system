@@ -15,13 +15,13 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('product_name')->default();
-            $table->string('product_type')->default();
-            $table->string('starting_price')->default();
-            $table->string('starting_time')->default();
-            $table->string('ending_time')->default();
-            $table->string('product_description')->default();
-            $table->string('image')->default();
+            $table->string('product_name');
+            $table->string('product_type');
+            $table->string('starting_price');
+            $table->string('starting_time');
+            $table->string('ending_time');
+            $table->string('product_description');
+            $table->string('image');
 
             $table->timestamps();
         });
