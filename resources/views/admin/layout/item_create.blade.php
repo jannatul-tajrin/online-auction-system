@@ -19,12 +19,12 @@
 
   <div class="form-group">
     <label for="exampleInputstarting_time">starting_time</label>
-    <input name="starting_time" type="string" class="form-control" id="exampleInputstarting_time" placeholder="starting_time">
+    <input name="starting_time" type="time" class="form-control" id="exampleInputstart_time" placeholder="starting_time">
   </div>
 
   <div class="form-group">
     <label for="exampleInputending_time">ending_time</label>
-    <input name="ending_time"type="string" class="form-control" id="exampleInputending_time" placeholder="ending_time">
+    <input name="ending_time"type="time" class="form-control" id="exampleInputending_time" placeholder="ending_time">
   </div>
 
   <div class="form-group">

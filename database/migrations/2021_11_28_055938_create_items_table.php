@@ -18,8 +18,8 @@ class CreateItemsTable extends Migration
             $table->string('product_name');
             $table->string('product_type');
             $table->string('starting_price');
-            $table->string('starting_time');
-            $table->string('ending_time');
+            $table->time('starting_time');
+            $table->time('ending_time');
             $table->string('product_description');
             $table->string('image');
 

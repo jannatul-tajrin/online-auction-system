@@ -30,6 +30,17 @@
 
 </div>
 </form>
+@if($bid)
+<h1 style="text-align:center">Bid_Result</h1>
+<br><br>
+<h4 style="text-align:center">Winner Id:{{$bid->user_id}}</h4>
+
+<h4 style="text-align:center">product Name:{{$biddetails->product_name}}</h4>
+<h4 style="text-align:center">Result:{{$maxBidResult}}</h4>
+<hr>
+@else
+
+@endif
 
 
 <table class="table table-bordered">
@@ -43,9 +54,9 @@
     </tr>
   </thead>
   <tbody>
-@foreach($bids as $bid)
+@foreach($bids as$key=>$bid)
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">{{$key+1}}</th>
       <td>{{$bid->item_id}}</td>
       <td>{{$bid->bidding_price}}</td>
       <td>{{$bid->user_id}}</td>

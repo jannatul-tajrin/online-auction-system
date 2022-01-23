@@ -22,6 +22,12 @@
             height:250px;
             width:100%;
         }
+        /* body {
+            background-image: url("frontend/images/Bid product.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        
+        } */
 
     </style>
 

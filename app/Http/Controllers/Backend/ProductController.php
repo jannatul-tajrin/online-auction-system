@@ -34,7 +34,7 @@ public function store(Request $request){
                 'product_name'=>$request->product_name,
                 'product_type'=>$request->product_type,
                 'starting_price'=>$request->starting_price,
-                'staring_time'=>$request->starting_time,
+                'starting_time'=>$request->starting_time,
                 'ending_time'=>$request->ending_time,
                 'product_description'=>$request->product_description,
                 

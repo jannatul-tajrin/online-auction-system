@@ -34,16 +34,20 @@
             </ul>
         </div>
 
-        <div class="col-lg-3">
+       <!-- <div class="col-lg-3">
             <div class="form-group input-group">
                 <span class="input-group-addon"><i class="fa fa-rupee"></i></span>
                 <input type="text" class="form-control" placeholder="Bidding starts from" disabled>
-            </div>
+            </div>-->
             
-            <a href="{{route('home.bid',$item->id)}}" class="btn btn-primary">Bid for Product</a>
-            
-        </div>
+          
 
+            @if($item->ending_time)
+            <a href="{{route('home.bid',$item->id)}}" class="btn btn-primary">Bid for Product</a>
+            @else
+            <a href="" class="btn btn-primary">Bid for Product</a>
+            @endif
+        </div>
     </div>
     <!-- /.row -->
 

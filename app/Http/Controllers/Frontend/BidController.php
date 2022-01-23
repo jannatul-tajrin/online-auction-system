@@ -9,12 +9,19 @@ use Illuminate\Http\Request;
 
 class BidController extends Controller
 {
+    
     public function bid(Request $request,$id)
     {
-        
+        //dd($request->all());
+        $maxBidResult=Bid::where('item_id',$id)->max('bidding_price');
+        $biddetails=Item::with(['bids'=>function($q){  
+         $q->orderBy('bidding_price','desc');
+        }])->where('id',$id)->first();
         $items=Item::find($id);
         $bids=Bid::all();
-        return view('website.layout.bid',compact('items','bids'));
+        $bid=Bid::find($id);
+
+        return view('website.layout.bid',compact('items','bids','biddetails','maxBidResult','bid'));
     }
 
 
