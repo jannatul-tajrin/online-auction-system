@@ -63,6 +63,11 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 report
                             </a>
+
+                            <a class="nav-link" href="{{route('admin.feedback')}}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Feedback
+                            </a>
                            <!-- <a class="nav-link" href="{{route('admin.seller')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 seller

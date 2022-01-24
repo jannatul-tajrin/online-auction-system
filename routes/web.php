@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\AdminLoginController;
 use App\Http\Controllers\Backend\Bid_detailsController;
+use App\Http\Controllers\Backend\FeedbackController;
 
 
 use App\Http\Controllers\Frontend\LoginController;
@@ -17,7 +18,7 @@ use App\Http\Controllers\Frontend\BidController;
 use App\Http\Controllers\Frontend\HomeControllers;
 use App\Http\Controllers\Frontend\ShowProductController;
 use App\Http\Controllers\Frontend\ProfileController;
-
+use App\Http\Controllers\Frontend\ReviewController;
 
 
 
@@ -90,12 +91,13 @@ Route::get('/Bid_details/{id}',[Bid_detailsController::class,'Bid_details'])->na
 Route::get('/Bid_details/status/update/{id}',[Bid_detailsController::class,'status_update'])->name('status.update');
 
 Route::get('/Bid_details/status/cancel/{id}',[Bid_detailsController::class,'status_cancel'])->name('status.cancel');
-
+Route::get('/feedback',[FeedbackController::class,'feedback'])->name('admin.feedback');
 
 });
 
 
 
+//Frontrend
 Route::get('/home',[HomeControllers::class,'Home'])->name('frontend.home');
 Route::get('/home/login',[LoginController::class,'Login'])->name('login.user');
 Route::post('/home/login/store',[LoginController::class,'Loginstore'])->name('login.store');
@@ -109,3 +111,7 @@ Route::get('/home/productdetails/{id}',[ShowProductController::class,'productDet
 Route::get('/home/bidforproduct/{id}',[BidController::class,'bid'])->name('home.bid');
 Route::post('/home/bidforproduct/store/{id}',[BidController::class,'store'])->name('home.bid.store');
 Route::get('/home/profile',[ProfileController::class,'profile'])->name('frontend.profile');
+
+Route::get('/home/review',[ReviewController::class,'review'])->name('frontend.review');
+
+Route::post('/home/review/store',[ReviewController::class,'store'])->name('frontend.review.store');
