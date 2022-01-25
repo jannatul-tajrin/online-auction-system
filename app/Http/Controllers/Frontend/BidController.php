@@ -6,6 +6,7 @@ use App\Models\Bid;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DB;
 
 class BidController extends Controller
 {
@@ -13,12 +14,14 @@ class BidController extends Controller
     public function bid(Request $request,$id)
     {
         //dd($request->all());
-        $maxBidResult=Bid::where('item_id',$id)->max('bidding_price');
-        // dd($maxBidResult);
+        $maxBidResult=Bid::where('item_id',$id)->select('bidding_price', 'user_id')->orderBy('bidding_price', 'desc')->get();
+        // max('bidding_price')/* ->get() */;
         $biddetails=Item::with(['bids'=>function($q){  
          $q->orderBy('bidding_price','desc');
         }])->where('id',$id)->first();
         $items=Item::find($id);
+        // dd(date('H:i:s',strtotime($items->ending_time)), date('H:i:s',strtoTime(now())), date('H:i:s',strtotime($items->ending_time))>date('H:i:s',strtoTime(now())));
+
         // dd($items);
         $bids=Bid::all();
         // $bid=Bid::find($id);

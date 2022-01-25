@@ -34,8 +34,8 @@ public function store(Request $request){
                 'product_name'=>$request->product_name,
                 'product_type'=>$request->product_type,
                 'starting_price'=>$request->starting_price,
-                'starting_time'=>$request->starting_time,
-                'ending_time'=>$request->ending_time,
+                'starting_time'=>date('H:i:s', strtotime($request->starting_time)),
+                'ending_time'=>date('H:i:s', strtotime($request->ending_time)),
                 'product_description'=>$request->product_description,
                 
                 'image'=>$filename,
@@ -86,8 +86,8 @@ $item->update([
     'product_name'=>$request->product_name,
     'product_type'=>$request->product_type,
     'starting_price'=>$request->starting_price,
-    'staring_time'=>$request->starting_time,
-    'ending_time'=>$request->ending_time,
+    'staring_time'=>$request->date('H:i:s', strtotime($request->starting_time)),
+    'ending_time'=>$request->date('H:i:s', strtotime($request->ending_time)),
     'product_description'=>$request->product_description,
     
     'image'=>$filename,

@@ -3,10 +3,10 @@
 @section('content')
 
 <h1>BID</h1>
-<div><img src="{{url('/uploads/'.$items->image)}}" class="img-responsive" alt="Modal_1" width="300px" height="300px">
+<div><img src="{{isset($items->image) ? url('/uploads/'.$items->image) : ''}}" class="img-responsive" alt="Modal_1" width="300px" height="300px">
 
-<div style="margin:40px">Price:{{$items->starting_price}}</div>
-<div style="margin:40px">Time:{{$items->starting_time}}</div>
+<div style="margin:40px">Price:{{isset($items->starting_price) ? $items->starting_price : ''}}</div>
+<div style="margin:40px">Time:{{isset($items->starting_time) ? $items->starting_time : ''}} </div>
 
 
 @if(session('success'))
@@ -16,7 +16,7 @@
 <div class="alert alert-danger">{!! session('error') !!}</div>
 @endif
 
-<form action="{{route('home.bid.store',$items->id)}}" method="post">
+<form action="{{isset($items->id) ? route('home.bid.store',$items->id) : ''}}" method="post">
     @csrf
 <div class="col-lg-3">
             <div class="form-group input-group">
@@ -24,7 +24,7 @@
                 <input name="bidding_price" type="text" class="form-control" placeholder="Bidding starts from" >
                
 
-                @if(date('H:i:s',strtotime($items->ending_time))>date('H:i:s',strtoTime(now())))
+                @if(isset($items->ending_time) && date('H:i:s',strtotime($items->ending_time))>date('H:i:s',strtoTime(now())))
                 <button type="submit" class="btn btn-success">Success</button>
                 @else
                 <p style="color:red;">Bidding time expired.</P>
@@ -37,8 +37,9 @@
 <h1 style="text-align:center">Bid_Result</h1>
 <br><br>
 
-<h4 style="text-align:center">product Name:{{$biddetails->product_name}}</h4>
-<h4 style="text-align:center">Result:{{$maxBidResult}}</h4>
+<h4 style="text-align:center">product Name:{{isset($biddetails->product_name) ? $biddetails->product_name : ''}}</h4>
+<h4 style="text-align:center">Bidding price:{{isset($maxBidResult[0]->bidding_price) ? $maxBidResult[0]->bidding_price : ''}}</h4>
+<h4 style="text-align:center">User Id:{{isset($maxBidResult[0]->user_id) ? $maxBidResult[0]->user_id : ''}}</h4>
 <hr>
 @else
 
@@ -56,15 +57,17 @@
     </tr>
   </thead>
   <tbody>
-@foreach($biddetails->bids as $key=>$bid)
-    <tr>
-      <th scope="row">{{$key}}</th>
-      <td>{{$bid->item_id}}</td>
-      <td>{{$bid->bidding_price}}</td>
-      <td>{{$bid->user_id}}</td>
-      <td>{{$bid->status}}</td>
-    </tr>
-    @endforeach
+    @if (isset($biddetails->bids))
+      @foreach($biddetails->bids as $key=>$bid)
+          <tr>
+            <th scope="row">{{$key}}</th>
+            <td>{{$bid->item_id}}</td>
+            <td>{{$bid->bidding_price}}</td>
+            <td>{{$bid->user_id}}</td>
+            <td>{{$bid->status}}</td>
+          </tr>
+          @endforeach
+    @endif
     
     
   </tbody>
