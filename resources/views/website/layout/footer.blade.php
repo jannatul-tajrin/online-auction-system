@@ -9,7 +9,7 @@
         </ul>
         <p class="footer-copyright">© 2022 Copyright of Ra1</p>
     </div>-->
-    <div class="footer-social">
+   <!-- <div class="footer-social">
         <a href="contactus.html" class="social-icons"><i class="fa fa-envelope"></i></a>
     </div>
 </footer>

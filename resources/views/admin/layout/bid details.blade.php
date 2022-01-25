@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+
 <h1>Bid_details</h1>
 
 

@@ -19,7 +19,7 @@ use App\Http\Controllers\Frontend\HomeControllers;
 use App\Http\Controllers\Frontend\ShowProductController;
 use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\ReviewController;
-
+use App\Http\Controllers\Frontend\ResultController;
 
 
 
@@ -115,3 +115,4 @@ Route::get('/home/profile',[ProfileController::class,'profile'])->name('frontend
 Route::get('/home/review',[ReviewController::class,'review'])->name('frontend.review');
 
 Route::post('/home/review/store',[ReviewController::class,'store'])->name('frontend.review.store');
+Route::get('/home/result',[ResultController::class,'result'])->name('frontend.result');

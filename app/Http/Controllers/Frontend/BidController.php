@@ -14,14 +14,17 @@ class BidController extends Controller
     {
         //dd($request->all());
         $maxBidResult=Bid::where('item_id',$id)->max('bidding_price');
+        // dd($maxBidResult);
         $biddetails=Item::with(['bids'=>function($q){  
          $q->orderBy('bidding_price','desc');
         }])->where('id',$id)->first();
         $items=Item::find($id);
+        // dd($items);
         $bids=Bid::all();
-        $bid=Bid::find($id);
+        // $bid=Bid::find($id);
+//  dd($bid);
 
-        return view('website.layout.bid',compact('items','bids','biddetails','maxBidResult','bid'));
+        return view('website.layout.bid',compact('items','bids','biddetails','maxBidResult'));
     }
 
 

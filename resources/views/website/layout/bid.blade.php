@@ -24,16 +24,18 @@
                 <input name="bidding_price" type="text" class="form-control" placeholder="Bidding starts from" >
                
 
-
+                @if(date('H:i:s',strtotime($items->ending_time))>date('H:i:s',strtoTime(now())))
                 <button type="submit" class="btn btn-success">Success</button>
+                @else
+                <p style="color:red;">Bidding time expired.</P>
+                @endif
             </div>     
 
 </div>
 </form>
-@if($bid)
+@if($bids)
 <h1 style="text-align:center">Bid_Result</h1>
 <br><br>
-<h4 style="text-align:center">Winner Id:{{$bid->user_id}}</h4>
 
 <h4 style="text-align:center">product Name:{{$biddetails->product_name}}</h4>
 <h4 style="text-align:center">Result:{{$maxBidResult}}</h4>
@@ -54,9 +56,9 @@
     </tr>
   </thead>
   <tbody>
-@foreach($bids as$key=>$bid)
+@foreach($biddetails->bids as $key=>$bid)
     <tr>
-      <th scope="row">{{$key+1}}</th>
+      <th scope="row">{{$key}}</th>
       <td>{{$bid->item_id}}</td>
       <td>{{$bid->bidding_price}}</td>
       <td>{{$bid->user_id}}</td>

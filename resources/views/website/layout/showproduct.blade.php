@@ -41,12 +41,12 @@
             </div>-->
             
           
-
-            @if($item->'ending_time','>=',$current time)->get();
+            
+          
+        
+            
             <a href="{{route('home.bid',$item->id)}}" class="btn btn-primary">Bid for Product</a>
-            @else
-            <a href="" class="btn btn-primary">Bid for Product</a>
-            @endif
+            
         </div>
     </div>
     <!-- /.row -->
