@@ -10,7 +10,7 @@ class ReportController extends Controller
 {
     public function report(Request $request)
     {
-        $biddetails = bids::whereBetween('created_at',[$request->from_date,$request->to_date])->get();
-        return view ('admin.layout.report');
+        $biddetails =Bid::whereBetween('created_at',[$request->from_date,$request->to_date])->get();
+        return view ('admin.layout.report',compact('biddetails'));
     }
 }

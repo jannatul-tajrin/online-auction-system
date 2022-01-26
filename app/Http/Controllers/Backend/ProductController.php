@@ -30,7 +30,7 @@ public function store(Request $request){
     
 
        // dd($request->all());
-            item::create([
+          item::create([
                 'product_name'=>$request->product_name,
                 'product_type'=>$request->product_type,
                 'starting_price'=>$request->starting_price,
@@ -42,6 +42,8 @@ public function store(Request $request){
                        
 
             ]);
+
+           // dd($a);
             return redirect()->back();
     }
 
@@ -86,8 +88,8 @@ $item->update([
     'product_name'=>$request->product_name,
     'product_type'=>$request->product_type,
     'starting_price'=>$request->starting_price,
-    'staring_time'=>$request->date('H:i:s', strtotime($request->starting_time)),
-    'ending_time'=>$request->date('H:i:s', strtotime($request->ending_time)),
+    'staring_time'=>date('H:i:s', strtotime($request->starting_time)),
+    'ending_time'=>date('H:i:s', strtotime($request->ending_time)),
     'product_description'=>$request->product_description,
     
     'image'=>$filename,
