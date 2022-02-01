@@ -17,9 +17,10 @@ use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\BidController;
 use App\Http\Controllers\Frontend\HomeControllers;
 use App\Http\Controllers\Frontend\ShowProductController;
-use App\Http\Controllers\Frontend\ProfileController;
+
 use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\ResultController;
+use App\Http\Controllers\Frontend\AboutusController;
 
 
 
@@ -110,9 +111,10 @@ Route::get('/home/showproduct',[ShowProductController::class,'product'])->name('
 Route::get('/home/productdetails/{id}',[ShowProductController::class,'productDetails'])->name('productdetails');
 Route::get('/home/bidforproduct/{id}',[BidController::class,'bid'])->name('home.bid');
 Route::post('/home/bidforproduct/store/{id}',[BidController::class,'store'])->name('home.bid.store');
-Route::get('/home/profile',[ProfileController::class,'profile'])->name('frontend.profile');
+
 
 Route::get('/home/review',[ReviewController::class,'review'])->name('frontend.review');
 
 Route::post('/home/review/store',[ReviewController::class,'store'])->name('frontend.review.store');
 Route::get('/home/result',[ResultController::class,'result'])->name('frontend.result');
+Route::get('/home/aboutus',[AboutusController::class,'aboutus'])->name('frontend.aboutus');

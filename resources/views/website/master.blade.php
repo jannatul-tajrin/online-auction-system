@@ -76,10 +76,11 @@
                 </li>
 
                 
-                <!--<li><a href="{{route('frontend.profile')}}">Profile</a>
-                </li>-->
-              
+                
                 <li><a href="{{route('frontend.review')}}">Review</a>
+                </li>
+
+                <li><a href="{{route('frontend.aboutus')}}">About Us</a>
                 </li>
 
                

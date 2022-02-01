@@ -34,7 +34,6 @@ class BidController extends Controller
     public function store(Request $request,$id)
     {
         $item = Item::find($id);
-
         if($item->starting_price < $request->bidding_price){
             Bid::create([
                 'item_id'=>$item->id,

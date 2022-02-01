@@ -12,8 +12,8 @@
         </div>
         <div class="row">
         @foreach($items as $item)
-            <div class="col-lg-4 product-item">
-                <a href="{{route('productdetails',$item->id)}}"><img src="{{url('/uploads/'.$item->image)}}" class="img-responsive" alt="Modal_1" width="300px" height="300px"> </a>
+            <div class="col-lg-3 product-item">
+                <a href="{{route('productdetails',$item->id)}}"><img src="{{url('/uploads/'.$item->image)}}" style="height: 200px; width: 100%;" class="img-responsive" alt="Modal_1" /> </a>
                 <h3 class="text-center">{{$item->product_name}}</h3>
                 <p class="text-center">Product Type:{{$item->product_type}}</p>
                 <!-- <p class="text-center">Price:{{$item->starting_price}}</p>

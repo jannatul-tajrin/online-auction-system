@@ -9,7 +9,12 @@ class ProductController extends Controller
 {
     public function product()
     {
-        $items =Item::all();
+        if(auth()->user()->role == 'admin'){
+            $items =Item::all();   
+        }else{
+            $items =Item::where('user_id',auth()->user()->id)->get();
+        }
+       
         return view ('admin.layout.product',compact('items'));
     }
     public function create()
@@ -31,6 +36,7 @@ public function store(Request $request){
 
        // dd($request->all());
           item::create([
+                'user_id' => auth()->user()->id,
                 'product_name'=>$request->product_name,
                 'product_type'=>$request->product_type,
                 'starting_price'=>$request->starting_price,
@@ -85,6 +91,7 @@ $filename='';
 
 
 $item->update([
+    'user_id' => auth()->user()->id,
     'product_name'=>$request->product_name,
     'product_type'=>$request->product_type,
     'starting_price'=>$request->starting_price,

@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class AboutusController extends Controller
 {
-    public function Profile()
+    public function aboutus()
     {
-        return view('website.layout.profile');
+        return view ('website.layout.aboutus');
     }
-
 }
